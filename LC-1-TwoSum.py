@@ -1,4 +1,4 @@
-# o(n) 
+# https://leetcode.com/problems/two-sum/
 def twoSum(nums, target):
     for i in range(len(nums)):
         diff = target - nums[i]
@@ -9,7 +9,7 @@ def twoSum(nums, target):
 
 
 
-# o(n^2) / nested loops
+
 # def twoSum(nums, target):
 #     for i in range(len(nums)):
 #         for j in range(i + 1, len(nums)):
