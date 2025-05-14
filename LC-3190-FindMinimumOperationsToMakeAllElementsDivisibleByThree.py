@@ -4,9 +4,9 @@
 from typing import List
 
 
-def minimumOperations(self, nums: List[int]) -> int:
-        count = 0
-        for num in nums:
-            if num % 3 != 0:
-                count += 1
-        return count
+def minimumOperations(nums: List[int]) -> int:
+        count = 0 
+        for num in nums: 
+            if num % 3 != 0: 
+                count += 1 
+        return count 
