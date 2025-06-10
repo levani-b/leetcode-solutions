@@ -10,22 +10,15 @@ class Solution:
             else:
                 freq[char] = 1
 
-        freq_odd, freq_even = [],[]
+        max_odd = 0
+        min_even = float('inf')
         for count in freq.values():
-            if count % 2 != 0:
-                freq_odd.append(count)
-            else:
-                freq_even.append(count)
+            if count % 2 != 0 and count > max_odd:
+                max_odd = count
+            elif count % 2 == 0 and count < min_even:
+                min_even = count
         
-        if len(freq_odd) == 0 or len(freq_even) == 0:
+        if max_odd == 0 or min_even == float('inf'):
             return 0
-
-        max_diff = freq_odd[0] - freq_even[0]
-
-        for odd in freq_odd:
-            for even in freq_even:
-                if odd - even > max_diff:
-                    max_diff = odd - even
-
-        return max_diff
-        
+        else:
+            return max_odd - min_even
