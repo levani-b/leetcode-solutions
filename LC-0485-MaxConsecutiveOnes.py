@@ -3,24 +3,37 @@
 
 from typing import List
 
-
-def findMaxConsecutiveOnes(nums: List[int]) -> int:
-        consecutive_ones = []
+class Solution:
+    def findMaxConsecutiveOnes(self, nums: List[int]) -> int:
         count = 0
-
-        for i in range(len(nums)):
-            if nums[i] == 1:
+        max_c = 0
+        for num in nums:
+            if num == 1:
                 count += 1
+                if count > max_c:
+                    max_c = count
             else:
-                consecutive_ones.append(count)
                 count = 0
-        consecutive_ones.append(count)
+        return max_c
 
-        max = 0
-        for max_n in consecutive_ones:
-            if max_n > max:
-                max = max_n
-        return max
+# class Solution:
+#     def findMaxConsecutiveOnes(nums: List[int]) -> int:
+#         consecutive_ones = []
+#         count = 0
+
+#         for i in range(len(nums)):
+#             if nums[i] == 1:
+#                 count += 1
+#             else:
+#                 consecutive_ones.append(count)
+#                 count = 0
+#         consecutive_ones.append(count)
+
+#         max = 0
+#         for max_n in consecutive_ones:
+#             if max_n > max:
+#                 max = max_n
+#         return max
 
 
 
