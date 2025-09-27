@@ -1,7 +1,8 @@
 # LeetCode Problem: 13. Roman To Integer
 # https://leetcode.com/problems/roman-to-integer/
 
-def romanToInt(s: str) -> int:
+class Solution:
+    def romanToInt(self, s: str) -> int:
         translations = {
             "I": 1,
             "V": 5,
@@ -11,10 +12,15 @@ def romanToInt(s: str) -> int:
             "D": 500,
             "M": 1000
         }
+
         number = 0
-        s = s.replace("IV", "IIII").replace("IX", "VIIII")
-        s = s.replace("XL", "XXXX").replace("XC", "LXXXX")
-        s = s.replace("CD", "CCCC").replace("CM", "DCCCC")
+        s = s.replace('IV', 'IIII')
+        s = s.replace('IX', 'VIIII')
+        s = s.replace('XL', 'XXXX')
+        s = s.replace('XC', 'LXXXX')
+        s = s.replace('CD', 'CCCC')
+        s = s.replace('CM', 'DCCCC')
+
         for char in s:
             number += translations[char]
         return number
