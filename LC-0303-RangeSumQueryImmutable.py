@@ -1,0 +1,38 @@
+# LeetCode Problem: 303. Range Sum Query Immutable
+# https://leetcode.com/problems/range-sum-query-immutable/
+
+class NumArray:
+
+    def __init__(self, nums: List[int]):
+        self.prefix = []
+        curr = 0
+        for n in nums:
+            curr += n
+            self.prefix.append(curr)
+
+    def sumRange(self, left: int, right: int) -> int:
+        rSum = self.prefix[right]
+        if left > 0:
+            lSum = self.prefix[left-1]
+        else:
+            lSum = 0
+        return rSum - lSum
+
+
+# class NumArray:
+
+#     def __init__(self, nums: List[int]):
+#         self.nums = nums
+
+#     def sumRange(self, left: int, right: int) -> int:
+#         sum = 0
+#         for i in range(left, right+1):
+#             sum += self.nums[i]
+        
+#         return sum
+
+
+# Your NumArray object will be instantiated and called as such:
+# obj = NumArray(nums)
+# param_1 = obj.sumRange(left,right)
+
