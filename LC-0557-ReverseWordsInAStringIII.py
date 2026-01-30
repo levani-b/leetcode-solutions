@@ -3,18 +3,17 @@
 
 class Solution:
     def reverseWords(self, s: str) -> str:
-        def reverse_word(word):
-            word_list = list(word)
-            l,r = 0, len(word) - 1
+        list_of_words = s.split()
+        res = []
+        for word in list_of_words:
+            word_lst = list(word)
+            l = 0
+            r = len(word_lst) - 1
+
             while l < r:
-                word_list[l], word_list[r] = word_list[r], word_list[l]
+                word_lst[l], word_lst[r] = word_lst[r], word_lst[l]
                 l += 1
                 r -= 1
-            
-            return ''.join(word_list)
-        
-        words = s.split()
-        for i in range(len(words)):
-            words[i] = reverse_word(words[i])
-        
-        return ' '.join(words)
+            res.append(''.join(word_lst))
+
+        return ' '.join(res)
