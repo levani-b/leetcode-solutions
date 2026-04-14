@@ -3,6 +3,19 @@
 
 from typing import List
 
+class Solution:
+    def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
+        sorted_nums = sorted(nums)
+        num_to_count = {}
+        for i in range(len(sorted_nums)):
+            if sorted_nums[i] not in num_to_count:
+                num_to_count[sorted_nums[i]] = i
+
+        res = []
+        for num in nums:
+            res.append(num_to_count[num])
+        
+        return res
 
 class Solution:
     def smallerNumbersThanCurrent(self, nums: List[int]) -> List[int]:
