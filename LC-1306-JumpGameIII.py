@@ -1,6 +1,8 @@
 # LeetCode Problem: 1306. Jump Game III
 # https://leetcode.com/problems/jump-game-iii/
 
+
+# BFS
 from collections import deque
 
 class Solution:
@@ -24,5 +26,31 @@ class Solution:
                 queue.append(backward)
 
         return False
+
+# DFS
+class Solution:
+    def canReach(self, arr: List[int], start: int) -> bool:
+        visited = set()
+
+        def dfs(i):
+            if i < 0 or i >= len(arr):
+                return False
+            
+            if i in visited:
+                return False
+            
+            if arr[i] == 0:
+                return True 
+            
+            visited.add(i)
+
+            forward = dfs(i + arr[i])
+            backward = dfs(i - arr[i])
+            
+            return forward or backward
+        return dfs(start)
+
+
+
 
 
