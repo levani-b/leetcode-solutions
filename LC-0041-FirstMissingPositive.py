@@ -1,0 +1,19 @@
+# LeetCode Problem: 41. First Missing Positive
+# https://leetcode.com/problems/first-missing-positive/
+
+class Solution:
+    def firstMissingPositive(self, nums: list[int]) -> int:
+        n = len(nums)
+        for i in range(n):
+            while 1 <= nums[i] <= n:
+                correct_index = nums[i] - 1
+
+                if nums[i] == nums[correct_index]:
+                    break
+                nums[i], nums[correct_index] = nums[correct_index], nums[i]
+        
+        for i in range(n):
+            if nums[i] != i + 1:
+                return i + 1
+        
+        return n + 1
